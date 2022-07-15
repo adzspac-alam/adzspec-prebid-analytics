@@ -58,10 +58,9 @@ adzspecAnalyticsAdapter.callEventHandler = function (eventType, args) {
 function handleAuctionEnd() {
 
     try {
-      ajax(endpoint + '.adzspec.com/analytics/auctions' + publisherId, callBack(), JSON.stringify(allEvents), {
+      ajax(endpoint + '.adzspec.com/analytics/auctions/' + publisherId, callBack(), JSON.stringify(allEvents), {
         contentType: 'application/json',
-        method: 'POST',
-        withCredentials: true
+        method: 'POST'
       });
     } catch (err) {
       logError('Adzspec analytics request encounter an error: ', err);
@@ -72,8 +71,7 @@ function handleBidWon(args) {
   try {
     ajax(endpoint + '.adzspec.com/analytics/bid_won/' + publisherId, callBack(), JSON.stringify(args), {
       contentType: 'application/json',
-      method: 'POST',
-      withCredentials: true
+      method: 'POST'
     });
   } catch (err) {
     logError('Adzspec analytics request encounter an error: ', err);
